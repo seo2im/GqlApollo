@@ -1,9 +1,16 @@
-const { Users } = require('./DB/User')
+import { UserData } from './DB/UserData'
+import { Users } from './DB/Users'
 
-module.exports.resolvers = {
+export const resolvers = {
 	Query : {
-		users : (_, { id }) => {
-			return Users.find(user => user.id === id)
+		userData : (_, { id }) => {
+			return UserData.find(user => user.id === id)
+		}
+	},
+
+	Mutation : {
+		addUsers : (_, { name }) => {
+			return [...Users, {id : Users.length, name : name}]
 		}
 	}
 }

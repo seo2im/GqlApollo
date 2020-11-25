@@ -1,7 +1,6 @@
-module.exports.Users = [
+export const UserData = [
 	{
 		id : 0,
-		name : "seolim",
 		categories : [{
 			id : 0, name : "TestCat"
 		}, {
@@ -44,7 +43,6 @@ module.exports.Users = [
 	},
 	{
 		id : 1,
-		name : "seo2im",
 		categories : [],
 		todos : [],
 		records : []

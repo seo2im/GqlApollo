@@ -1,6 +1,6 @@
-const { gql } = require('apollo-server')
+import { gql } from 'apollo-server'
 
-module.exports.typeDefs = gql`
+export const typeDefs = gql`
 	type Category {
 		id : Int!
 		name : String!
@@ -21,16 +21,25 @@ module.exports.typeDefs = gql`
 		content : String
 	}
 
-	type User {
-		Id : Int!
+	type UserData {
+		id : Int!
 		name : String!
 		categories : [Category]
 		todos : [Todo]
 		records : [Record]
 	}
 
+	type Users {
+		id : Int!
+		name : String!
+	}
+
 	type Query {
-		users(id : Int!) : User
+		userData(id : Int!) : UserData
+	}
+
+	type Mutation {
+		addUsers(name : String!) : [Users]
 	}
 `
 
